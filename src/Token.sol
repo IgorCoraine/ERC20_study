@@ -21,7 +21,8 @@ contract Token {
         _name = "Igor Coraine";
         _symbol = "CORA";
         _decimals = 18;
-        _totalSupply = 1000000;
+        _totalSupply = 1000000*1e18;
+        _balances[msg.sender] = _totalSupply;
     }    
 
     function name() public view returns (string memory){
