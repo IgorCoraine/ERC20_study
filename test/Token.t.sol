@@ -39,8 +39,9 @@ contract Tokenest is Test {
 
     function testApprovalAndTransferFrom() public {
         token.approve(address(1), 100);
+        vm.prank(address(1));
         token.transferFrom(address(this), address(2), 50);
-        assertEq(token.balanceOf(address(1)), token.totalSupply()-50);
+        assertEq(token.balanceOf(address(this)), token.totalSupply()-50);
         assertEq(token.balanceOf(address(2)), 50);
         assertEq(token.allowance(address(this), address(1)), 50);
     }
